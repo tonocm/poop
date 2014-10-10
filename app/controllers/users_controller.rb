@@ -15,10 +15,15 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    #@user.user_id = session[:user_id]
   end
 
   # GET /users/1/edit
   def edit
+    if session[:user_id] != @user.usID
+      flash[:notice] = "Sorry, you can't edit this user"
+      redirect_to users_path
+    end
   end
 
   # POST /users
