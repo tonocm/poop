@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    if(user.password == user.password_confirmation) do
+    if(user.password == user.password_confirmation) then
       respond_to do |format|
         if @user.save
           format.html { redirect_to @user, notice: 'User was successfully created.' }
