@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     if(@user.password == @user.password_confirmation)
       respond_to do |format|
         if @user.save
+          log_in @user
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           format.json { render :show, status: :created, location: @user }
         else
@@ -38,7 +39,7 @@ class UsersController < ApplicationController
         end
       end  
     else
-      redirect_to :back
+      redirect_to :back, flash.now[:danger] = 'Passwords do not match'
     end
   end
 
