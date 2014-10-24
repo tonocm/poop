@@ -20,10 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    if session[:user_id] != @user.usID
-      flash[:notice] = "Sorry, you can't edit this user"
-      redirect_to users_path
-    end
+    
   end
 
   # POST /users

@@ -8,7 +8,7 @@
 <table>
 
 <% if @users.size == 0 %>
-      <p>Be the first user to register on our website!</p>
+      <p>Be the first user to register in our website!</p>
 <% else %>
   <thead>
     <tr>
@@ -24,9 +24,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= user.username %></td>
-        <td><%= user.name %></td>
+        <!--td><%= user.name %></td>
         <td><%= user.email %></td>
-        <!--td><%= user.password %></td-->
+        <td><%= user.password %></td-->
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
