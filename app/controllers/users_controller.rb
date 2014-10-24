@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         end
       end  
     else
-      redirect_to :back, notice: "Password Fields Don't Match."
+      redirect_to :back
     end
   end
 
