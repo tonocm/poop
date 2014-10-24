@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         end
       end  
     else
-      redirect_to :new
+      redirect_to :back
     end
   end
 
