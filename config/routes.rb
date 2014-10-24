@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'static_pages/about'
 
   get 'static_pages/login'
-
+  get    'signup'  => 'users#new'
 
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
