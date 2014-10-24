@@ -38,7 +38,7 @@ class UsersController < ApplicationController
         end
       end  
     else
-      format.html { redirect_to :new, notice: "Error, password fields don't match." }
+      redirect_to :new
     end
   end
 
