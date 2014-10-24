@@ -38,7 +38,8 @@ class UsersController < ApplicationController
         end
       end  
     else
-      format.html { redirect_to @user, notice: 'Sorry Passwords Do not match, please try again.' }
+      format.html { render :new }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
 
