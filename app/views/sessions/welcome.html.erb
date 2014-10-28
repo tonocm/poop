@@ -222,30 +222,7 @@
 
 </body>
 
-
-
-
-
-
 <% else %>
-  <p>Hey you're not logged in!</p>
-
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Username:</strong>
-  <%= @current_user.username %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @current_user.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @current_user.email %>
-</p>
 <%= link_to 'Edit', edit_user_path(@current_user) %> |
 <%= link_to 'Back', users_path %>
 <% end %>
