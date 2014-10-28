@@ -47,7 +47,7 @@
                         <a href="#">Help</a>
                     </li>
                     <li>
-                        <%= link_to "Log Out", 'login' %>
+                        <%= link_to "Log out", logout_path, method: "delete" %>
                         <!--a href="#">Login</a-->
                     </li>
                 </ul>
@@ -205,7 +205,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#contact">Log Out</a>
+                            <%= link_to "Log out", logout_path, method: "delete" %>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; ProductivePoop 2014. All Rights Reserved</p>
