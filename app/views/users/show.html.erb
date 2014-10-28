@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><%= @user%></title>
+    <title><%= @user.name%></title>
 
     <!-- Bootstrap Core CSS -->
     <%= stylesheet_link_tag "bootstrap.min", "static_pages", "font-awesome.min" %>
@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">ProductivePoop</a>
+                <a class="navbar-brand" href="#">ProductivePoop | <%= @user.name %></a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -51,7 +51,7 @@
                         <a href="#">Help</a>
                     </li>
                     <li>
-                        <%= link_to "Login", 'login' %>
+                        <%= link_to "Log Out", 'login' %>
                         <!--a href="#">Login</a-->
                     </li>
                 </ul>
@@ -209,7 +209,7 @@
                         </li>
                         <li class="footer-menu-divider">&sdot;</li>
                         <li>
-                            <a href="#contact">Login</a>
+                            <a href="#contact">Log Out</a>
                         </li>
                     </ul>
                     <p class="copyright text-muted small">Copyright &copy; ProductivePoop 2014. All Rights Reserved</p>
@@ -250,7 +250,6 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
-<% end %>
-
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+<% end %>
