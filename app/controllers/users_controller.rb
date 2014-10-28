@@ -39,8 +39,8 @@ class UsersController < ApplicationController
         end
       end  
     else
-      flash.now[:danger] = 'Passwords do not match'
       redirect_to :back
+      flash.now[:danger] = 'Passwords do not match'
     end
   end
 
