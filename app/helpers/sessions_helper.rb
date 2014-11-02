@@ -36,9 +36,10 @@ module SessionsHelper
       if user && user.authenticated?(cookies[:remember_token])
         log_in user
         @current_user = user
-    return true
+      end
+      return true
     end
-  return false
+    return false
   end
 
 # Forgets a persistent session.
