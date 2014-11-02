@@ -28,9 +28,9 @@ module SessionsHelper
 
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
-    !current_user.nil?
-
-    if (user_id = cookies.signed[:user_id])
+    if(!current_user.nil?)
+    end
+    elsif(user_id = cookies.signed[:user_id])
       raise       # The tests still pass, so this branch is currently untested.
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
@@ -38,7 +38,7 @@ module SessionsHelper
         @current_user = user
       end
     end
-    
+
   end
 
 # Forgets a persistent session.
