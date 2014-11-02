@@ -27,17 +27,15 @@ module SessionsHelper
   end
 
   # Returns true if the user is logged in, false otherwise.
-  def logged_in
+  def logged_in?
     if (!current_user.nil?)
       return true
-    end
     elsif (user_id = cookies.signed[:user_id])
       raise       # The tests still pass, so this branch is currently untested.
       user = User.find_by(id: user_id)
       if user && user.authenticated?(cookies[:remember_token])
         log_in user
         @current_user = user
-      end
     return true
     end
   return false
