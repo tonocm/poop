@@ -29,6 +29,7 @@ module SessionsHelper
   # Returns true if the user is logged in, false otherwise.
   def logged_in?
     if (!current_user.nil?)
+      return true;
     end
     elsif (user_id = cookies.signed[:user_id])
       raise       # The tests still pass, so this branch is currently untested.
@@ -40,7 +41,7 @@ module SessionsHelper
         return true;
       end
     end
-
+    return false;
   end
 
 # Forgets a persistent session.
