@@ -1,3 +1,8 @@
+<% if logged_in? %>
+
+<% redirect_to welcome_path %>
+
+<% else %>
 <% provide(:title, "Log in") %>
 <h1>Log in</h1>
 
@@ -22,3 +27,4 @@
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
   </div>
 </div>
+<% end %>
