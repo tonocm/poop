@@ -7,3 +7,8 @@
 The idea behind ProductivePoop is to provide users with a knowledge hub for whenever they're presented with the opportunity to learn, no matter how small that timeframe could be.
 
 The mision of ProductivePoop is to provide its users with digestable knowledge in the time it will usually take them to take a poop.
+
+Inline-style: 
+![alt text](https://raw.githubusercontent.com/tonocm/poop/master/preview-no-login.png "Website Preview - Not Logged In")
+
+![alt text](https://raw.githubusercontent.com/tonocm/poop/master/preview-login.png "Website Preview - Not Logged In")
