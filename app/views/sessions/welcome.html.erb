@@ -7,6 +7,35 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+<script type="text/javascript">
+var ref = new Firebase("https://hacker-news.firebaseio.com/v0/");
+var itemRef;
+
+ref.child('topstories').child(0).on('value', function(snapshot) {
+    if(itemRef) {
+        itemRef.off();
+    }
+
+    //Get the ID of the top article
+    var id = snapshot.val();
+
+    //Get the article details and update in realtime
+    itemRef = ref.child('item').child(id);
+    itemRef.on('value', function(snapshot) {            
+        var item = snapshot.val();
+
+        document.getElementById("score").innerHTML = item.score;
+
+        var anchor = document.getElementById("article_a")
+        anchor.innerHTML = item.title;
+        anchor.href = item.url;
+
+        document.getElementById("comments_a").href = "https://news.ycombinator.com/item?id=" + 'item.id';
+    });     
+});
+
+</script
+
 
     <!-- Bootstrap Core CSS -->
     <%= stylesheet_link_tag "bootstrap.min", "static_pages", "font-awesome.min" %>
@@ -19,6 +48,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 
 </head>
 
@@ -99,8 +129,7 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Ever tried using an ipad to be productive?<br>Now you can</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                    <i id="score">score</i> <a href="#" id="article_a">article</a> <i><a href="#" id="comments_a">(comments)</a></i>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
                     <%= image_tag "ipad.png", class: "img-responsive", alt: "This is an IPad" %>
