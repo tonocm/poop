@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+require 'open-uri'
+
   def new
     if logged_in?
       redirect_to welcome_path
