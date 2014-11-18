@@ -239,7 +239,7 @@ $(document).ready(function() {
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='border-left:10px'type='button' id='" + i + "'>Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='" + i + "'>Done</button></li>";
         i = (parseInt(i)+1);
         console.log(i);
         localStorage["num"] = i;
