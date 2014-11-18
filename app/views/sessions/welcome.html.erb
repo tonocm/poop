@@ -222,30 +222,31 @@ $(document).ready(function() {
     console.log("Testing!");
     
 
-    if(localStorage["test"] === undefined){
-            var array = [];
-            array.push("<ul>To Do List:");
-            localStorage["test"] = array;
+    if(localStorage["0"] === undefined){
+            localStorage["0"] = "<ul>To Do List:";
             $("#ajaxFun").html("");
-            $("#ajaxFun").append("<ul>To Do List:</ul>");
+            $("#ajaxFun").append(localStorage[{"0"]);
+            $("#ajaxFun").append("</ul>");
+            localStorage["num"] = 1;
         }
         else{
             $("#ajaxFun").html("");
-            var array = localStorage["test"];
-            for(var k=0; k < parseInt(array.length); k++) {
-                $("#ajaxFun").append(array[k]);
+            for(var k=0; k < parseInt(localStorage["num"]); k++) {
+                $("#ajaxFun").append(localStorage[k]);
             }
             $("#ajaxFun").append("</ul>");
         }
 
 
     $("#saveItem").click(function() {
-        var array = localStorage["test"];
-        array.push("<li>" +  $("#toDo").val() + "\t<button type='button' id='finish'>Done</button></li>");
-        localStorage["test"] = array;
+        var i = localStorage["num"];
+        localStorage[i] = "<li>" +  $("#toDo").val() + "\t<button type='button' id='finish+"+i+"'>Done</button></li>";
+        i = (parseInt(i)+1);
+        console.log(i);
+        localStorage["num"] = i;
         $("#ajaxFun").html("");
-        for(var k=0; k < parseInt(array.length); k++) {
-            $("#ajaxFun").append(temp[k]);
+        for(var k=0; k < localStorage["num"]; k++) {
+            $("#ajaxFun").append(localStorage[k]);
         }
         $("#ajaxFun").append("</ul>");
     });
