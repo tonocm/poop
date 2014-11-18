@@ -239,7 +239,7 @@ $(document).ready(function() {
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='" + i + "'>Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='done" + i + "'>Done</button></li>";
         i = (parseInt(i)+1);
         console.log(i);
         localStorage["num"] = i;
@@ -250,10 +250,18 @@ $(document).ready(function() {
         $("#ajaxFun").append("</ul>");
     });
 
-  // to remove an item, do:
-  // localStorage.removeItem(key);
-  // to clear, do:
-  // localStorage.clear();
+    $("#done"*).click(function() {
+        var i = localStorage["num"];
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='done" + i + "'>Done</button></li>";
+        i = (parseInt(i)+1);
+        console.log(i);
+        localStorage["num"] = i;
+        $("#ajaxFun").html("");
+        for(var k=0; k < localStorage["num"]; k++) {
+            $("#ajaxFun").append(localStorage[k]);
+        }
+        $("#ajaxFun").append("</ul>");
+    });
 });
 
 </script>
