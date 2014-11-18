@@ -13,7 +13,15 @@
     <%= stylesheet_link_tag "bootstrap.min", "static_pages", "font-awesome.min" %>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-
+<script type="text/javascript">
+function del(button_id){
+        localStorage[button_id] = "<span></span>";
+        $("#ajaxFun").html("");
+        for(var k=0; k < localStorage["num"]; k++) {
+            $("#ajaxFun").append(localStorage[k]);
+        }
+    }
+</script>
 
 </head>
 
@@ -247,15 +255,7 @@ $(document).ready(function() {
         }
     });
 
-    function del(button_id){
-        localStorage[button_id] = "<span></span>";
-        $("#ajaxFun").html("");
-        for(var k=0; k < localStorage["num"]; k++) {
-            $("#ajaxFun").append(localStorage[k]);
-        }
-    }
-});
-
+    });
 </script>
 
 
