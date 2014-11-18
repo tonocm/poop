@@ -230,7 +230,7 @@ $(document).ready(function() {
             $("#ajaxFun").append(localStorage[{test: i}]);
             localStorage["num"] = (parseInt(i)+1);
         }
-        else
+        else{
             $("#ajaxFun").html("");
             for(var k=0; k < localStorage["num"]; k++) {
                 $("#ajaxFun").append(localStorage[{test: k}]);
