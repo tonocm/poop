@@ -238,7 +238,7 @@ $(document).ready(function() {
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' onclick='del(this.id)' id='" + i + ">Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button type='button' onclick='del(this.id)' style='margin-left:40px' id='" + i + "'>Done</button></li>";
         i = (parseInt(i)+1);
         localStorage["num"] = i;
         $("#ajaxFun").html("");
