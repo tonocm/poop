@@ -95,6 +95,9 @@
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
                     <p>To Do For the Day:</p>
+                    <input type="text" id="toDo" name="Add Item">
+                    <button type="button" id="saveItem">Add</button>
+                    <p></p>
                     <div id="ajaxFun"></div>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
@@ -211,6 +214,28 @@
 
     <!-- jQuery Version 1.11.0 -->
     <%= javascript_include_tag "jquery-1.11.0.js" %>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+  console.log("Testing!");
+
+  $("#saveItem").click(function() {
+    localStorage["Items"] = localStorage["Items"] + "<br />" + "<p>" +  $("#toDo").val() +  "</p>";
+    $("#ajaxFun").append(localStorage["Items"]);
+    // now inspect localStorage in the JavaScript console with
+    // console.dir(localStorage);
+  });
+
+  // to remove an item, do:
+  // localStorage.removeItem(key);
+  // to clear, do:
+  // localStorage.clear();
+});
+
+</script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <%= javascript_include_tag "bootstrap.min.js" %>
