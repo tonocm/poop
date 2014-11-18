@@ -223,8 +223,9 @@ $(document).ready(function() {
 
   $("#saveItem").click(function() {
 
-    if(localStorage["Items"] === undefined)
+    if(localStorage["Items"] === undefined){
         localStorage["Items"] = "To Do List:";
+    }
     else{
         $("#ajaxFun").html("");
         $("#ajaxFun").append(localStorage["Items"]);
