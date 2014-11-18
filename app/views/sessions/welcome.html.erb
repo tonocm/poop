@@ -96,7 +96,7 @@
                     <div class="clearfix"></div>
                     <p>To Do For the Day:</p>
                     <input type="text" id="toDo" name="Add Item">
-                    <button type="button" id="saveItem">Add</button>
+                    <input type="button" id="saveItem">Add</button>
                     <p></p>
                     <div id="ajaxFun"></div>
                 </div>
@@ -233,35 +233,26 @@ $(document).ready(function() {
             for(var k=0; k < parseInt(localStorage["num"]); k++) {
                 $("#ajaxFun").append(localStorage[k]);
             }
-            $("#ajaxFun").append("</ul>");
         }
 
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='done" + i + "'>Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='" + i + "' onClick='remove(this.id)''>Done</button></li>";
         i = (parseInt(i)+1);
-        console.log(i);
         localStorage["num"] = i;
         $("#ajaxFun").html("");
         for(var k=0; k < localStorage["num"]; k++) {
             $("#ajaxFun").append(localStorage[k]);
         }
-        $("#ajaxFun").append("</ul>");
     });
-
-    $("#done"*).click(function() {
-        var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='done" + i + "'>Done</button></li>";
-        i = (parseInt(i)+1);
-        console.log(i);
-        localStorage["num"] = i;
+    remove(button_id){
+        localStorage[button_id] = "<span></span>";
         $("#ajaxFun").html("");
         for(var k=0; k < localStorage["num"]; k++) {
             $("#ajaxFun").append(localStorage[k]);
         }
-        $("#ajaxFun").append("</ul>");
-    });
+    };
 });
 
 </script>
