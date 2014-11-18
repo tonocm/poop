@@ -246,8 +246,8 @@ $(document).ready(function() {
             $("#ajaxFun").append(localStorage[k]);
         }
     });
-    
-    del(button_id){
+
+    function del(button_id){
         localStorage[button_id] = "<span></span>";
         $("#ajaxFun").html("");
         for(var k=0; k < localStorage["num"]; k++) {
