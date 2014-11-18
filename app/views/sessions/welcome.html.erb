@@ -219,8 +219,8 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-    console.log("Testing!");
     
+    console.log("Testing!");
 
     if(localStorage["0"] === undefined){
             localStorage["0"] = "<h3>To Do List:<h3>";
@@ -238,7 +238,7 @@ $(document).ready(function() {
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='" + i + "' onClick='remove(this.id)''>Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='margin-left:40px'type='button' id='" + i + "' onClick='del(this.id)''>Done</button></li>";
         i = (parseInt(i)+1);
         localStorage["num"] = i;
         $("#ajaxFun").html("");
@@ -246,7 +246,7 @@ $(document).ready(function() {
             $("#ajaxFun").append(localStorage[k]);
         }
     });
-    remove(button_id){
+    del(button_id){
         localStorage[button_id] = "<span></span>";
         $("#ajaxFun").html("");
         for(var k=0; k < localStorage["num"]; k++) {
