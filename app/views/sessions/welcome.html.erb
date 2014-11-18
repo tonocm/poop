@@ -223,10 +223,9 @@ $(document).ready(function() {
     
 
     if(localStorage["0"] === undefined){
-            localStorage["0"] = "<ul>To Do List:";
+            localStorage["0"] = "<h3>To Do List:<h3>";
             $("#ajaxFun").html("");
             $("#ajaxFun").append(localStorage["0"]);
-            $("#ajaxFun").append("</ul>");
             localStorage["num"] = 1;
         }
         else{
@@ -240,7 +239,7 @@ $(document).ready(function() {
 
     $("#saveItem").click(function() {
         var i = localStorage["num"];
-        localStorage[i] = "<li>" +  $("#toDo").val() + "\t<button type='button' id='finish+"+i+"'>Done</button></li>";
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button style='border-left:10px'type='button' id='" + i + "'>Done</button></li>";
         i = (parseInt(i)+1);
         console.log(i);
         localStorage["num"] = i;
