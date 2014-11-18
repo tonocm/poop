@@ -242,7 +242,9 @@ $(document).ready(function() {
     $("#saveItem").click(function() {
         var i = localStorage["num"];
         localStorage[{test: i}] = "<li>" +  $("#toDo").val() + "\t\t\t\t<button type='button' id='finish+"+i+"'>Done</button>" +"</li>";
-        localStorage["num"] = i + 1;
+        i = i++;
+        console.log(i);
+        localStorage["num"] = i;
         var k;
         $("#ajaxFun").html("");
         for(k=0; k < localStorage["num"]; k++) {
