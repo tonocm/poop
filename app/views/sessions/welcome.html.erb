@@ -230,11 +230,10 @@ $(document).ready(function() {
             $("#ajaxFun").append(localStorage[{test: i}]);
             localStorage["num"] = (parseInt(i)+1);
         }
-        else{
-            var k;
+        else
             $("#ajaxFun").html("");
-            for(k=0; k < localStorage["num"]; k++) {
-                $("#ajaxFun").append(localStorage[{test: i}]);
+            for(var k=0; k < localStorage["num"]; k++) {
+                $("#ajaxFun").append(localStorage[{test: k}]);
             }
         }
 
@@ -248,7 +247,7 @@ $(document).ready(function() {
         var k;
         $("#ajaxFun").html("");
         for(k=0; k < localStorage["num"]; k++) {
-            $("#ajaxFun").append(localStorage[{test: i}]);
+            $("#ajaxFun").append(localStorage[{test: k}]);
         }
     });
 
