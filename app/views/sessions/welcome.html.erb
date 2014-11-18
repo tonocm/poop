@@ -219,26 +219,35 @@
 <script type="text/javascript">
 
 $(document).ready(function() {
-  console.log("Testing!");
+    console.log("Testing!");
+    
 
-    if(localStorage["Items"] === undefined){
-            localStorage["Items"] = "To Do List:";
+    if(localStorage["Items"][i] === undefined){
+            var i = localStorage["num"];
+            localStorage["num"] = 0;
+            localStorage["Items"][i] = "<ul>To Do List:</ul>";
             $("#ajaxFun").html("");
             $("#ajaxFun").append(localStorage["Items"]);
+            localStorage["num"] = i + 1;
         }
         else{
+            var k;
             $("#ajaxFun").html("");
-            $("#ajaxFun").append(localStorage["Items"]);
+            for(k=0; k < localStorage[i]; k++) {
+                $("#ajaxFun").append(localStorage["Items"][i]);
+            }
         }
 
 
-  $("#saveItem").click(function() {
-    localStorage["Items"] = localStorage["Items"] + "<p>" +  $("#toDo").val() +  "</p>";
-    $("#ajaxFun").html("");
-    $("#ajaxFun").append(localStorage["Items"]);
-    // now inspect localStorage in the JavaScript console with
-    // console.dir(localStorage);
-  });
+    $("#saveItem").click(function() {
+        var i = localStorage["num"];
+        localStorage["Items"][i] = "<li>" +  $("#toDo").val() + "<button type='button' id='finish+'"+i+">    Done</button>" +"</li>";
+        var k;
+        $("#ajaxFun").html("");
+        for(k=0; k < localStorage[i]; k++) {
+            $("#ajaxFun").append(localStorage["Items"][i]);
+        }
+    });
 
   // to remove an item, do:
   // localStorage.removeItem(key);
