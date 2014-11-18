@@ -221,19 +221,18 @@
 $(document).ready(function() {
   console.log("Testing!");
 
-  $("#saveItem").click(function() {
-
     if(localStorage["Items"] === undefined){
-        localStorage["Items"] = "To Do List:";
-        $("#ajaxFun").html("");
-        $("#ajaxFun").append(localStorage["Items"]);
-    }
-    else{
-        $("#ajaxFun").html("");
-        $("#ajaxFun").append(localStorage["Items"]);
-    }
+            localStorage["Items"] = "To Do List:";
+            $("#ajaxFun").html("");
+            $("#ajaxFun").append(localStorage["Items"]);
+        }
+        else{
+            $("#ajaxFun").html("");
+            $("#ajaxFun").append(localStorage["Items"]);
+        }
 
 
+  $("#saveItem").click(function() {
     localStorage["Items"] = localStorage["Items"] + "<p>" +  $("#toDo").val() +  "</p>";
     $("#ajaxFun").html("");
     $("#ajaxFun").append(localStorage["Items"]);
