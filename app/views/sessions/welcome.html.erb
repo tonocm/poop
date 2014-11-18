@@ -225,9 +225,10 @@ $(document).ready(function() {
     if(localStorage[{test: "0"}] === undefined){
             localStorage["num"] = 0;
             var i = localStorage["num"];
-            localStorage[{test: i}] = "<ul>To Do List:</ul>";
+            localStorage[{test: i}] = "<ul>To Do List:";
             $("#ajaxFun").html("");
             $("#ajaxFun").append(localStorage[{test: i}]);
+            $("#ajaxFun").append("</ul>");
             localStorage["num"] = (parseInt(i)+1);
         }
         else{
@@ -235,6 +236,7 @@ $(document).ready(function() {
             for(var k=0; k < localStorage["num"]; k++) {
                 $("#ajaxFun").append(localStorage[{test: k}]);
             }
+            $("#ajaxFun").append("</ul>");
         }
 
 
@@ -244,11 +246,11 @@ $(document).ready(function() {
         i = (parseInt(i)+1);
         console.log(i);
         localStorage["num"] = i;
-        var k;
         $("#ajaxFun").html("");
-        for(k=0; k < localStorage["num"]; k++) {
+        for(var k=0; k < localStorage["num"]; k++) {
             $("#ajaxFun").append(localStorage[{test: k}]);
         }
+        $("#ajaxFun").append("</ul>");
     });
 
   // to remove an item, do:
