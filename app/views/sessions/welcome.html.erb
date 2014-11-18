@@ -222,7 +222,8 @@ $(document).ready(function() {
   console.log("Testing!");
 
   $("#saveItem").click(function() {
-    localStorage["Items"] = localStorage["Items"] + "<br />" + "<p>" +  $("#toDo").val() +  "</p>";
+    localStorage["Items"] = localStorage["Items"] + "<p>" +  $("#toDo").val() +  "</p>";
+    $("#ajaxFun").html("");
     $("#ajaxFun").append(localStorage["Items"]);
     // now inspect localStorage in the JavaScript console with
     // console.dir(localStorage);
