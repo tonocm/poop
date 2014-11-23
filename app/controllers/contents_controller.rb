@@ -6,7 +6,8 @@ class ContentsController < ApplicationController
 
 	def testing
 
-		logger.debug user
+		logger.debug content.article
+		logger.debug content.title
 		#@content = Content.new(content_params)
 		#user = @user
 		redirect_to welcome_path
