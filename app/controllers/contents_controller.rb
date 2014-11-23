@@ -1,11 +1,7 @@
 class ContentsController < ApplicationController
 
-	def test1
+	def test
 
-	end
-
-	def test2
-		redirect_to welcome_path
 	end
 
 

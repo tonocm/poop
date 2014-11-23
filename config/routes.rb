@@ -10,8 +10,7 @@ Rails.application.routes.draw do
   get    'contact' => 'static_pages#contact'
   get    'welcome' => 'sessions#welcome'
 
-  get    'test' => 'contents#test1'
-  get    'todo' => 'contents#test2'
+  get    'test' => 'contents#test'
   
   get    'signup'  => 'users#new'
 
