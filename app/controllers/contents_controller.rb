@@ -1,8 +1,26 @@
 class ContentsController < ApplicationController
 
-def create
-  @article = Article.new(params[:article])
+def test
+
+	
+
+end
+
+def new
+  @content = Content.new
+end
  
-  @article.save
-  redirect_to @article
+def create
+  @content = Content.new(content_params)
+ 
+  if @content.save
+    redirect_to welcome_path
+  else
+    render 'new'
+  end
+end
+ 
+private
+  def content_params
+    params.require(:article).permit(:title, :text)
 end
