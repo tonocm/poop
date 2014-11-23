@@ -4,6 +4,10 @@ class ContentsController < ApplicationController
 
 	end
 
+	def testing
+
+	end
+
 
 	def new
 	  @content = Content.new

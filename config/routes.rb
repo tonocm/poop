@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get    'welcome' => 'sessions#welcome'
 
   get    'test' => 'contents#test'
-  
+  post   'test' => 'contents#testing'
+
+
   get    'signup'  => 'users#new'
 
   get    'login'   => 'sessions#new'
