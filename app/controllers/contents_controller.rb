@@ -2,8 +2,6 @@ class ContentsController < ApplicationController
 
 def test
 
-	
-
 end
 
 def new
@@ -16,11 +14,11 @@ def create
   if @content.save
     redirect_to welcome_path
   else
-    render 'new'
+    render 'welcome'
   end
 end
  
-private
-  def content_params
-    params.require(:article).permit(:title, :text)
-end
+#private
+ # def content_params
+  #  params.require(:article).permit(:title, :text)
+#end
