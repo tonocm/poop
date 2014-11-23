@@ -1,8 +1,13 @@
 class ContentsController < ApplicationController
 
-	def test
+	def test1
 
 	end
+
+	def test2
+		redirect_to welcome_path
+	end
+
 
 	def new
 	  @content = Content.new
