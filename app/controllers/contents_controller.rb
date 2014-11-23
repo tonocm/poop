@@ -1,21 +1,22 @@
 class ContentsController < ApplicationController
 
-def test
+	def test
 
-end
+	end
 
-def new
-  @content = Content.new
-end
- 
-def create
-  @content = Content.new(content_params)
- 
-  if @content.save
-    redirect_to welcome_path
-  else
-    render 'welcome'
-  end
+	def new
+	  @content = Content.new
+	end
+	 
+	def create
+	  @content = Content.new(content_params)
+	 
+	  if @content.save
+	    redirect_to welcome_path
+	  else
+	    render 'welcome'
+	  end
+	end
 end
  
 #private
