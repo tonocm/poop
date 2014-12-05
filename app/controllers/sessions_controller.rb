@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new
     if logged_in?
 
-      base_uri = 'https://hacker-news.firebaseio.com'
+      base_uri = 'https://hacker-news.firebaseio.com/v0/'
 
       firebase = Firebase::Client.new(base_uri)
 
