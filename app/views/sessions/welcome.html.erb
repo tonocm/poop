@@ -1,24 +1,28 @@
 <% if logged_in? %>
+
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Maximize Productivity">
+    <meta name="author" content="Hector Antonio Cardenas">
 
 
     <!-- Bootstrap Core CSS -->
-    <%= stylesheet_link_tag "bootstrap.min", "static_pages", "font-awesome.min" %>
-
+    <%= stylesheet_link_tag "bootstrap.min", "static_pages" %>
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<script type="text/javascript">
+function del(button_id){
+        localStorage[button_id] = "<span></span>";
+        $("#ajaxFun").html("");
+        for(var k=0; k < localStorage["num"]; k++) {
+            $("#ajaxFun").append(localStorage[k]);
+        }
+    }
+</script>
 
 
 <script type="text/javascript">
@@ -101,13 +105,13 @@ ref.child('topstories').child(0).on('value', function(snapshot) {
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                                <a href="https://twitter.com/tonocardenasm" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                <a href="https://github.com/tonocm/poop" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                                <a href="https://www.linkedin.com/in/hectorantoniocardenas" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
                             </li>
                         </ul>
                     </div>
@@ -130,10 +134,15 @@ ref.child('topstories').child(0).on('value', function(snapshot) {
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <i id="score">score</i> <a href="#" id="article_a">article</a> <i><a href="#" id="comments_a">(comments)</a></i>
+                    <p>To Do For the Day:</p>
+                    <input type="text" id="toDo" name="Add Item">
+                    <button type="button" class="btn btn-default" id="saveItem">Add</button>
+                    <p></p>
+                    <div id="ajaxFun"></div>
+>>>>>>> Antonio
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <%= image_tag "ipad.png", class: "img-responsive", alt: "This is an IPad" %>
+                    <%= image_tag "todo.png", class: "img-responsive", alt: "This is an IPad" %>
                 </div>
             </div>
 
@@ -151,11 +160,16 @@ ref.child('topstories').child(0).on('value', function(snapshot) {
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Do you think your dog will stop you from being productive?<br>Not while you poop</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    <% if (Random.rand(2) < 1) %>
+                        <iframe width="100%" height="500px" frameborder="0" src="http://www.theverge.com/tech"> </iframe>
+                    <% else %>
+                        <iframe width="100%" height="500px" frameborder="0" src="http://techcrunch.com/"> </iframe>
+                    <% end %>
+                    <!--h2 class="section-heading">Find the most exciting news on the biggest trending topics<br>Here on ProductivePoop:</h2>
+                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p-->
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <%= image_tag "dog.png", class: "img-responsive", alt: "This is a Dog" %>
+                    <%= image_tag "news.png", class: "img-responsive", :width => 300, :height => 300, alt: "This is a Dog" %>
                 </div>
             </div>
 
@@ -246,6 +260,56 @@ ref.child('topstories').child(0).on('value', function(snapshot) {
 
     <!-- jQuery Version 1.11.0 -->
     <%= javascript_include_tag "jquery-1.11.0.js" %>
+
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+    
+    console.log("                  ***********");
+    console.log("               ***** ***********");
+    console.log("            ** ****** *** ********");
+    console.log("           ****  ******  ** *******");
+    console.log("           ***     ******* ** ******");
+    console.log("           ***       **        *  **");
+    console.log("            *|/------  -------\\ ** *");
+    console.log("             |       |=|       :===**");
+    console.log("              |  O  |   | O   |  }|*");
+    console.log("               |---- |   ----  |  |*");
+    console.log("               |    |___       |\\/");
+    console.log("               |              |");
+    console.log("               \\   -----     |");
+    console.log("                \\           |");
+    console.log("                  -__ -- -/");
+
+    if(localStorage["0"] === undefined){
+            localStorage["0"] = "<h3>To Do List:<h3>";
+            $("#ajaxFun").html("");
+            $("#ajaxFun").append(localStorage["0"]);
+            localStorage["num"] = 1;
+        }
+        else{
+            $("#ajaxFun").html("");
+            for(var k=0; k < parseInt(localStorage["num"]); k++) {
+                $("#ajaxFun").append(localStorage[k]);
+            }
+        }
+
+
+    $("#saveItem").click(function() {
+        var i = localStorage["num"];
+        localStorage[i] = "<li>" +  $("#toDo").val() + "<button type='button' class='btn btn-default' onclick='del(this.id)' style='margin-left:40px' id='" + i + "'>Done</button></li>";
+        i = (parseInt(i)+1);
+        localStorage["num"] = i;
+        $("#ajaxFun").html("");
+        for(var k=0; k < localStorage["num"]; k++) {
+            $("#ajaxFun").append(localStorage[k]);
+        }
+    });
+
+    });
+</script>
+
 
     <!-- Bootstrap Core JavaScript -->
     <%= javascript_include_tag "bootstrap.min.js" %>

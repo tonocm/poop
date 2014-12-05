@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   get 'static_pages/help'
   get 'static_pages/about'
   get 'static_pages/login'
-  #idk if this should be here or not
   get    'help'    => 'static_pages#help'
   get    'about'   => 'static_pages#about'
   get    'contact' => 'static_pages#contact'
   get    'welcome' => 'sessions#welcome'
-  #end
+
+  get    'test' => 'contents#test'
+  post   'test' => 'contents#testing'
+
+
   get    'signup'  => 'users#new'
+
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   get    'logout'  => 'sessions#destroy'
